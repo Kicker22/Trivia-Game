@@ -1,0 +1,10 @@
+body{
+    background-image: url(../../assets/images/onbutton.jpg);
+    background-size: cover;
+}
+
+.jumbotron{
+    background-image: url(../../assets/images/onbutton.jpg);
+    background-size: cover;
+    color: white;
+}
