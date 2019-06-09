@@ -22,35 +22,30 @@ var gameQuestions =[
     }
 ];
 
-function initgame(){
-    showQuestions()
+function gameStart(){
+    displayQuestion()
 }
 
-showQuestions()
+gameStart()
 
-function showQuestions(questions,quizContainer){
-    var outPut = [];
-    var answers;
-
-    for(let i = 0; i <questions.length; i++){
-        answers = [];
-    }
-    
-    for(letter in questions[i].answers){
-        answers.push(
-            '<label>'
-                + '<input type="radio" name="question'+i+'" value="'+letter+'">'
-                + letter + ': '
-				+ questions[i].answers[letter]
-			+ '</label>'
-        );
-    }
-    output.push(
-            '<div class="question">' + questions[i].question + '</div>'
-            + '<div class="answers">' + answers.join('') + '</div>'
-    );
-    
-    quizContainer.innerHTML = outPut.join('');
-
-    
+//write a function that displays the question on the dom
+function displayQuestion(){
+    $("#question").text(gameQuestions[0].questions)
+    console.log(gameQuestions[0].questions)
+    displayAnswers()
+   
 }
+
+//write a function that displays answer options on the dom
+function displayAnswers(){
+    const output = [];
+    for( let i = 0; i < gameQuestions[0].answers; i++){
+        output.push(gameQuestions)
+    }
+    console.log(output[0])
+}
+
+//write a function that checks if the user input is correct or inccorect 
+    // then changes the question.
+
+
