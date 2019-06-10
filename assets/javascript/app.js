@@ -1,6 +1,6 @@
 var gameQuestions =[
     {
-        questions:"which came first?",
+        question:"which came first?",
         answers: {
             a: "xbox",
             b: "Nes",
@@ -11,7 +11,7 @@ var gameQuestions =[
     },
 
     {
-        questions:"which of these dose not have an X button",
+        question:"which of these dose not have an X button",
         answers: {
             a: "Playstation controller",
             b: "GameCube controller",
@@ -21,29 +21,42 @@ var gameQuestions =[
         correctAnswer:"c"
     }
 ];
+console.log(gameQuestions[1].question)
 
 function gameStart(){
     displayQuestion()
+    displayBubbles()
 }
 
 gameStart()
 
 //write a function that displays the question on the dom
 function displayQuestion(){
-    $("#question").text(gameQuestions[0].questions)
-    console.log(gameQuestions[0].questions)
-    displayAnswers()
+ var question1 = gameQuestions[0].question;
+  $("#question").text(question1);
    
 }
 
-//write a function that displays answer options on the dom
-function displayAnswers(){
-    const output = [];
-    for( let i = 0; i < gameQuestions[0].answers; i++){
-        output.push(gameQuestions)
+//write a function that displays 4 input bubbles
+function displayBubbles(){
+
+    for (i = 0; i < 4; i++) {
+        console.log(output[1])
+        var button = $('<button class="btn btn-primary bt-lg"> </button>')
+        button.appendTo(".quizContainer")
+
+        
     }
-    console.log(output[0])
 }
+
+function displaAnswers(){
+    var answer1 = [];
+    answer1.push(gameQuestions[0].answers)
+    for(i = 0; i < answer1.length; i++){
+        
+    }
+}
+
 
 //write a function that checks if the user input is correct or inccorect 
     // then changes the question.
