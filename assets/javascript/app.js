@@ -1,33 +1,54 @@
+// This is an array of objects
 const quiz = [
 {
     question: ["Which video game console came first?"],
     answer: ['Xbox 360', 'Nintendo 64', 'Playstation 1', 'NES'],
-    corectAnswer: 'NES'
+    correctAnswer: 'NES'
 },
 {
     question:['On the Tv show Supernatural, what is the name of their best friend who is also an agnel? '],
     answer:['Azazel','Castiel','Gabriel','Raphael'],
-    corectAnswer:'Castiel'
+    correctAnswer:'Castiel'
 
 },
 {
-    question:['In the popular RPG Dungeons & Dragons,  What dice roll is an automatic success? '],
-    answer:['Natural 20', 'Natural 1'],
-    corectAnswer: 'Natural 20'
+    question:['In the popular RPG Dungeons & Dragons,  What d20 roll is an automatic success? '],
+    answer:['Natural: 20', 'Natural: 1'],
+    correctAnswer: 'Natural: 20'
 
 },
 {
     question:[" Drizzt Do'Urden is a popular character created by the author R.A Salvatore. what magical race is he? "],
     answer:['Drow', 'Elf', 'Dwarf', 'Barbarian' ],
-    corectAnswer:'Drow'
+    correctAnswer:'Drow'
+},
+{
+    question:['In which Super Mario Bros, can the player throw turnips?'],
+    answer:['Super Mario Bros', 'Super Mario Bros 2', 'Super Mario 64', 'Mario kart'],
+    correctAnswer:'Super Mario Bros 2'
+},
+];
+
+
+
+// This var will be used to iterate through my array of objects
+// its updated when the user guesses the right answer.
+let questionIndex = 0;
+
+let userCorrect = 0;
+
+let userWrong = 0;
+
+var questionNumber = 0
+
+function initGame(){
+displayQuestion()
+buttons()  
 }
 
 
-];
-// This var will be used to iterate through my array of objects
-// its updated when the user guesses the right answer.
-var questionIndex = 0;
 
+initGame()
 
 // write a function that displays buttons with reflected values
 function buttons() {
@@ -35,7 +56,7 @@ function buttons() {
     console.log(buttonValues);
     for (let i = 0; i < buttonValues.length; i++) {
         var button = $('<button>')
-        button.addClass('btn btn-lg btn-primary mb-2 choices')
+        button.addClass(' btn btn-lg btn-light mb-2 choices')
         button.val(buttonValues[i])
         button.text(buttonValues[i])
         $('.buttons').append(button)
@@ -51,6 +72,7 @@ function displayQuestion() {
         questionDiv.addClass('display-4')
         $('.questions').append(questionDiv)
     }
+    displayQuestionCount()
 }
 
 
@@ -58,28 +80,77 @@ function displayQuestion() {
 function clearElement(){
     $('.buttons').empty();
     $('.questions').empty();
+    $('.questionNumber').empty();
 }
 
 // this on click fucntion checks if the user guess equals is correct or incorect
-$('body').on('click', '.btn', function () {
-    var answer = quiz[questionIndex].corectAnswer;
+$('body').on('click', '.choices', function () {
+    var answer = quiz[questionIndex].correctAnswer;
     var userChoice = $(this).val()
     console.log(userChoice)
     if (userChoice === answer) {
-        alert('you win!')
+        userCorrect++
         questionIndex++
-    }else{
-        alert('that is incorect')
+    }else if(userChoice != answer){
+        
+        userWrong++
         questionIndex++
     }
-    clearElement()
-    displayQuestion()
-    buttons()
 
-})
+    stats();
+    clearElement();
+    displayQuestion();
+    buttons();
 
-displayQuestion()
-buttons()
+});
+   
 
 
 
+// This function displays the current question number 
+function displayQuestionCount(){
+    questionNumber++
+    $('.questionNumber').append(questionNumber + '/5')
+};
+
+// this function displays user stats after quiz is 
+function stats(){
+    if(questionIndex >=5){
+        var correctDiv = $('<div>')
+        var correct = $('<div>')
+        var incorectDiv = $('<div>')
+        var incorect = $('<div>')
+
+        correct.append(userCorrect)
+        incorect.append(userWrong)
+
+        correctDiv.text('Correct')
+        correctDiv.addClass('stats')
+        correctDiv.append(correct)
+        incorectDiv.text('Incorect')
+        incorectDiv.append(incorect)
+        incorectDiv.addClass('stats')
+
+        $('.statsTitle').text("How did you do?")
+        $('.userStats').append(correctDiv)
+        $('.userStats').append(incorectDiv)
+
+    }
+}
+
+function restart(){
+    $('body').on('click','.restart',function(){
+        questionIndex = 0;
+        userCorrect = 0;
+        userWrong = 0;
+        questionNumber = 0;
+        clearElement()
+        displayQuestion()
+        buttons()
+        $('.statsTitle').empty()
+        $('.userStats').empty()
+    })
+}
+
+
+restart()

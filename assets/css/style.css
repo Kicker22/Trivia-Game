@@ -1,9 +1,17 @@
+body{
+    background-image: url(../../assets/images/dungeons-and-dragons-humor-d20-red-background-wallpaper.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.start{}
 .questions{
+    color: white;
     text-align: center;
 }
 
 .game-container{
     overflow: none; 
+    height: 900px;
 }
 
 .buttons-continer{
@@ -20,8 +28,41 @@
 }
 
 .choices{
- width: 25rem;
+    border: 1px solid black;
+    width: 25rem;
 }
+
+.questionNumber{
+    color: white;
+    background: black;
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.statsTitle{
+    color: white;
+    text-decoration: underline;
+    margin: 0 auto;
+    width: 50%
+}
+
+.userStats{
+    font-size: 28px;
+    color: white;
+    margin:0 auto; 
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.restartContainer{
+    display: flex;
+    justify-content: center;
+}
+
+
+
 
 
 
