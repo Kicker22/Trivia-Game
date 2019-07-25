@@ -132,7 +132,7 @@ $('body').on('click', '.choices', function () {
 // This function displays the current question number 
 function displayQuestionCount(){
     questionNumber++
-    $('.questionNumber').append(questionNumber + '/6')
+    $('.questionNumber').append(questionNumber + '/9')
 };
 
 // this function displays user stats after quiz is 
