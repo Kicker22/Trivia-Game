@@ -137,7 +137,7 @@ function displayQuestionCount(){
 
 // this function displays user stats after quiz is 
 function stats(){
-    if(questionIndex >=6){
+    if(questionIndex >=9){
         var correctDiv = $('<div>')
         var correct = $('<div>')
         var incorectDiv = $('<div>')
