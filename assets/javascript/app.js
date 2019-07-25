@@ -27,6 +27,28 @@ const quiz = [
     answer:['Super Mario Bros', 'Super Mario Bros 2', 'Super Mario 64', 'Mario kart'],
     correctAnswer:'Super Mario Bros 2'
 },
+{
+    question:["Which is the first level of Halo: Combat Evolved?"],
+    answer:["Pillar of Autumn","Prologue","Sierra 117","343 Guilty Spark"],
+    correctAnswer:"Pillar of Autumn"
+},
+{
+    question:["What is the name of the fictional reserch project on the Tv show Lost?"],
+    answer:["DARPA", "Dharma Initiative", "Umbrela Corp","Shadow Moses"],
+    correctAnswer:"Shadow Moses"
+
+},
+{
+    question:["Drizzt do urden, carries a figurine of which animal?"],
+    answer:["Owl","Wolverine","Wolf","Panther"],
+    correctAnswer:"Panther"
+
+},
+{
+    question:["In the Diablo series, which game has a mad cow level?"],
+    answer:["Diablo","Diablo 2","Diablo 3","None of the above"],
+    correctAnswer:"Diablo 2"
+}
 ];
 
 
@@ -110,12 +132,12 @@ $('body').on('click', '.choices', function () {
 // This function displays the current question number 
 function displayQuestionCount(){
     questionNumber++
-    $('.questionNumber').append(questionNumber + '/5')
+    $('.questionNumber').append(questionNumber + '/6')
 };
 
 // this function displays user stats after quiz is 
 function stats(){
-    if(questionIndex >=5){
+    if(questionIndex >=6){
         var correctDiv = $('<div>')
         var correct = $('<div>')
         var incorectDiv = $('<div>')
