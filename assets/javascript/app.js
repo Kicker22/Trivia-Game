@@ -35,7 +35,7 @@ const quiz = [
 {
     question:["What is the name of the fictional reserch project on the Tv show Lost?"],
     answer:["DARPA", "Dharma Initiative", "Umbrela Corp","Shadow Moses"],
-    correctAnswer:"Shadow Moses"
+    correctAnswer:"Dharma Initiative"
 
 },
 {
